@@ -6,9 +6,9 @@ protocol MainViewModelProtocol {
 }
 
 final class MainViewModel: MainViewModelProtocol {
+   
     public var updateViewData: ((ViewData) -> ())?
-    
-    
+
     init() {
         updateViewData?(.initial)
     }
@@ -18,8 +18,9 @@ final class MainViewModel: MainViewModelProtocol {
         updateViewData?(.loading(ViewData.Data(icon: nil,
                                                title: nil,
                                                description: nil)))
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.updateViewData?(.loading(ViewData.Data(icon: "success",
+            self?.updateViewData?(.success(ViewData.Data(icon: "success",
                                                          title: "Hello",
                                                          description: "Loading complete")))
         }

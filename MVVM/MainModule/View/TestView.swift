@@ -22,7 +22,6 @@ class TestView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         switch viewData {
         case .initial:
             update(viewData: nil, isHidden: true, turnAnimation: false, isIndicatorHidden: true)
